@@ -107,11 +107,11 @@ public class Game {
 					if(i == exceptions[exception_index].getValue() && j == exceptions[exception_index].getColor()) {
 						exception_index++;
 					} else {
-						deck[index] = new Card(i, j, i+"."+j);
+						deck[index] = new Card(i, j);
 						index++;
 					}
 				} catch(ArrayIndexOutOfBoundsException e) {
-					deck[index] = new Card(i, j, i+"."+j);
+					deck[index] = new Card(i, j);
 					index++;
 				}
 			}
@@ -410,5 +410,17 @@ public class Game {
 
 	public void setRound(int round) {
 		this.round = round;
+	}
+
+	public Card[] getCards(){
+		boolean[] visible = mid.isVisible();
+		Card[] c = mid.getCards();
+		for(int i = 0; i < mid.getCards().length; i++) {
+			if(visible[i] == true) {
+				
+			}else {
+				c[i] = null;
+			}
+		}
 	}
 }
